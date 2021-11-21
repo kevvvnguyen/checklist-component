@@ -27,12 +27,8 @@ You will need the following things properly installed on your computer.
 * To run the application after installation, run `ember serve`, `ember s`, or `npm start`.
 * Visit the app at [http://localhost:4200](http://localhost:4200).
 * Visit the tests at [http://localhost:4200/tests](http://localhost:4200/tests) (for GUI version of tests).
+* Or visit [https://checklist-component.netlify.app/](https://checklist-component.netlify.app/)
 
 ### Running Tests (command line)
 
 * To run the tests in the command line, run `ember test` or `ember test --server`.
-
-### Linting
-
-* `npm run lint`
-* `npm run lint:fix`
