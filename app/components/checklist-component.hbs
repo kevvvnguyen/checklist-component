@@ -2,9 +2,9 @@
     <div class="main-headers">
         <Input
             class="master-checkbox-class"
+            disabled={{false}}
             id="master-checkbox"
             @checked={{this.masterCheckboxValue}}
-            @disabled={{false}}
             @type="checkbox"
             {{on "input" this.toggleAction}}
         />
@@ -19,6 +19,7 @@
             <button
                 class="download-button"
                 disabled={{if (eq this.totalSelected 0) "disabled"}}
+                type="button"
                 {{on "click" this.downloadAlert}}
             >
                 <img
@@ -44,11 +45,13 @@
                 (if (eq file.status "available") " selectable-row")
                 (if file.selected " selected-row")
             }}
+            role="button"
             {{on "click" (fn this.updateFileCount file)}}
         >
             <Input
+                aria-label="File checkbox"
+                disabled={{if (eq file.status "available") false true}}
                 @checked={{file.value}}
-                @disabled={{if (eq file.status "available") false true}}
                 @type="checkbox"
             />
             <div>{{file.name}}</div>
