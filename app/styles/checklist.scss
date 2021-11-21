@@ -1,0 +1,119 @@
+.grid-container {
+    .main-headers > .master-checkbox-class {
+        grid-area: mcb;
+    }
+
+    .main-headers > .selected-files-class {
+        grid-area: ts;
+    }
+
+    .main-headers > .download-button-div {
+        grid-area: db;
+    }
+
+    .flex-container {
+        grid-area: fc;
+    }
+
+    .main-headers {
+        align-items: center;
+        border-bottom: 1px solid rgb(232,232,232);
+        column-gap: 40px;
+        display: grid;
+        font-size: larger;
+        grid-template-areas: "mcb ts db . .";
+        grid-template-columns: 24px 150px 150px 500px 200px;
+        justify-content: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+
+        .download-button {
+            align-items: center;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            width: 200px;
+
+            img.disabled {
+                opacity: 0.5;
+            }
+        }
+
+        .download-button:hover {
+            background-color: rgb(232,232,232);
+        }
+
+        .download-button:disabled {
+            background-color: transparent;
+            cursor: not-allowed;
+        }
+
+        span {
+            font-size: larger;
+            display: inline-block;
+        }
+    }
+
+    .table-headers > .name {
+        grid-area: name;
+    }
+
+    .table-headers > .device {
+        grid-area: device;
+    }
+
+    .table-headers > .path {
+        grid-area: path;
+    }
+
+    .table-headers > .status {
+        grid-area: status;
+        padding-left: 20px;
+    }
+
+    .table-headers {
+        border-bottom: 1px solid rgb(232,232,232);
+        column-gap: 40px;
+        display: grid;
+        font-size: larger;
+        grid-template-areas: ". name device path status";
+        grid-template-columns: 24px 150px 150px 500px 200px;
+        justify-content: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .flex-container {
+        align-items: center;
+        border-bottom: 1px solid rgb(232,232,232);
+        column-gap: 40px;
+        display: grid;
+        grid-template-columns: 24px 150px 150px 500px 200px;
+        justify-content: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+
+        .file-status-data {
+            padding-left: 20px;
+        }
+
+        .file-status-img {
+            align-items: center;
+            display: flex;
+
+            img {
+                padding-right: 5px;
+            }
+        }
+    }
+
+    div.selectable-row:hover {
+        background-color: rgb(232,232,232);
+        cursor: pointer;
+    }
+
+    div.selected-row {
+        background-color: rgb(232,232,232);
+    }
+}

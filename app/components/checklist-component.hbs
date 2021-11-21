@@ -1,0 +1,70 @@
+<div class="grid-container">
+    <div class="main-headers">
+        <Input
+            class="master-checkbox-class"
+            id="master-checkbox"
+            @checked={{this.masterCheckboxValue}}
+            @disabled={{false}}
+            @type="checkbox"
+            {{on "input" this.toggleAction}}
+        />
+        <div class="selected-files-class">
+            {{#if (eq this.totalSelected 0)}}
+                None selected
+            {{else}}
+                Selected {{this.totalSelected}}
+            {{/if}}
+        </div>
+        <div class="download-button-div">
+            <button
+                class="download-button"
+                disabled={{if (eq this.totalSelected 0) "disabled"}}
+                {{on "click" this.downloadAlert}}
+            >
+                <img
+                    alt="Download arrow button"
+                    class={{if (eq this.totalSelected 0) "disabled"}}
+                    height="25"
+                    width="25"
+                    src="/assets/images/download_arrow.png"   
+                >
+                <span>Download Selected</span>
+            </button>
+        </div>
+    </div>
+    <div class="table-headers">
+        <div class="name">Name</div>
+        <div class="device">Device</div>
+        <div class="path">Path</div>
+        <div class="status">Status</div>
+    </div>
+    {{#each this.files as |file|}}
+        <div class={{concat 
+                "flex-container" 
+                (if (eq file.status "available") " selectable-row")
+                (if file.selected " selected-row")
+            }}
+            {{on "click" (fn this.updateFileCount file)}}
+        >
+            <Input
+                @checked={{file.value}}
+                @disabled={{if (eq file.status "available") false true}}
+                @type="checkbox"
+            />
+            <div>{{file.name}}</div>
+            <div>{{file.device}}</div>
+            <div>{{file.path}}</div>
+            <div class="{{if (eq file.status "available") "file-status-img" "file-status-data"}}">
+                {{#if (eq file.status "available")}}
+                    <img
+                        alt="Green available dot"
+                        height="15"
+                        width="15"
+                        src="/assets/images/available_green_dot.png"   
+                    >
+                {{/if}}
+                <span class="file-status-span">{{file.status}}</span>
+            </div>
+        </div>
+    {{/each}}
+</div>

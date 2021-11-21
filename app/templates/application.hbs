@@ -1,7 +1,7 @@
-{{page-title "ChecklistComponent"}}
+<div class="centered">
+    {{page-title "Checklist Component"}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+    <ChecklistComponent
+        @files={{@model}}
+    />
+</div>

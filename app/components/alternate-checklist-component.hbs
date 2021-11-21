@@ -1,0 +1,81 @@
+<div class="grid-container">
+    <table frame=void>
+        <tr class="main-headers">
+            <th>
+                <Input
+                    id="master-checkbox"
+                    class="master-checkbox-class"
+                    @disabled={{false}}
+                    @checked={{this.masterCheckboxValue}}
+                    @type="checkbox"
+                    {{on "input" this.toggleAction}}
+                />
+            </th>
+            <th class="selected-files-class">
+                {{#if (eq this.totalSelected 0)}}
+                    None selected
+                {{else}}
+                    Selected {{this.totalSelected}}
+                {{/if}}
+            </th>
+            <th width="400px">
+                <button
+                    class="download-button"
+                    disabled={{if (eq this.totalSelected 0) "disabled"}}
+                    {{on "click" this.downloadAlert}}
+                >
+                    <img
+                        class={{if (eq this.totalSelected 0) "disabled"}}
+                        alt="Download arrow button"
+                        height="25"
+                        width="25"
+                        src="/assets/images/download_arrow.png"   
+                    >
+                    <span>Download Selected</span>
+                </button>
+            </th>
+        </tr>
+        <tr class="table-headers">
+            <th></th>
+            <th>Name</th>
+            <th>Device</th>
+            <th>Path</th>
+            <th></th>
+            <th class="status-header">Status</th>
+        </tr>
+        {{#each this.files as |file| }}
+        <tbody
+            {{on "click" (fn this.updateFileCount file)}}
+        >
+            <tr class={{concat 
+                    "data-row" 
+                    (if (eq file.status "available") " selectable-row")
+                    (if file.selected " selected-row")
+                }}
+            >
+                <td>
+                    <Input
+                        @checked={{file.value}}
+                        @disabled={{if (eq file.status "available") false true}}
+                        @type="checkbox"
+                    />
+                </td>
+                <td>{{file.name}}</td>
+                <td>{{file.device}}</td>
+                <td>{{file.path}}</td>
+                <td class="available-dot-column">
+                    {{#if (eq file.status "available")}}
+                        <img
+                            alt="Green available dot"
+                            height="15"
+                            width="15"
+                            src="/assets/images/available_green_dot.png"   
+                        >   
+                    {{/if}}
+                </td>
+                <td class="status-column">{{file.status}}</td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>

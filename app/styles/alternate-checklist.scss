@@ -1,0 +1,82 @@
+.grid-container {
+    .main-headers {
+        .download-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 200px;
+
+            img.disabled {
+                opacity: 0.5;
+            }
+        }
+
+        .download-button:hover {
+            background-color: rgb(232,232,232);
+        }
+
+        .download-button:disabled {
+            background-color: transparent;
+            cursor: not-allowed;
+        }
+
+        span {
+            display: inline-block;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+    
+        td {
+            text-align: left;
+            padding: 8px 25px 8px 25px;
+        }
+    
+        th {
+            padding-left: 25px;
+            padding-right: 25px;
+            text-align: left;
+            font-size: larger;
+
+            span {
+                font-size: larger;
+            }
+        }
+    
+        tr { 
+            border: solid;
+            border-color: lightgray;
+            border-width: 1px 0 ;
+        }
+
+        th.selected-files-class {
+            display: flex;
+            width: 150px;
+        }
+
+        td.available-dot-column {
+            padding-bottom: 4px;
+            padding-right: 0px;
+        }
+
+        td.status-column {
+            padding-left: 0px;
+        }
+
+        th.status-header {
+            padding-left: 0px;
+        }
+    }
+
+    tr.selectable-row:hover {
+        background-color: rgb(232,232,232);
+        cursor: pointer;
+    }
+
+    tr.selected-row {
+        background-color: rgb(232,232,232);
+    }
+}
