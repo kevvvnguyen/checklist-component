@@ -2,10 +2,12 @@
 
 This is a basic implementation of a checklist component that takes in an object and displays it. For brevity and discretion, the following files were created:
 
-* templates/application.hbs - The application file that calls the reusable ChecklistComponent
+* templates/application.hbs - The application file that calls the reusable ChecklistComponent.
 * routes/application.js - The model that passes in the mocked data for the ChecklistComponent to consume in application.hbs.
-* components/checklist-component.hbs - The template file for the ChecklistComponent
-* components/checklist-component.js - The javascript file for the ChecklistComponent
+* components/checklist-component.hbs - The template file for the ChecklistComponent.
+* components/checklist-component.js - The javascript file for the ChecklistComponent.
+* styles/app.scss - The styling for the application, centers the component and sets font for accessibility.
+* styles/checklist.scss - The styling for the ChecklistComponent.
 
 ## Prerequisites
 
