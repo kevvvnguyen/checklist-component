@@ -20,6 +20,12 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
+## Quick start from .zip file
+
+* Open zip file and run `npm install`
+* Once installation is done, run `ember s`
+* Open [http://localhost:4200](http://localhost:4200) once build is done.
+
 ## Installation
 
 * `git clone ` this repo (link omitted to prevent implicit bias upon review)
