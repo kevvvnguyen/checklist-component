@@ -1,8 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { findAll, render, pauseTest } from '@ember/test-helpers';
+import { findAll, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { ChecklistComponentDummy1, ChecklistComponentDummy2 } from '../test-support-json';
+import { ChecklistComponentDummy1 } from '../test-support-json';
 import $ from 'jquery';
 
 module('Integration | Component | checklist-component', function (hooks) {
