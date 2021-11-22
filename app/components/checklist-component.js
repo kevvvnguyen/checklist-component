@@ -17,15 +17,17 @@ export default class ChecklistComponentComponent extends Component {
         super(...arguments);
 
         // Import the files argument from where it was called
-        const filesObject = this.args.files;
+        const filesObject = this.filesArgument;
         this.totalAvailable = 0;
 
         // Append the value property to the object, and initialize to false to 
         // correctly reflect that all checkboxes are false to begin with.
         // Also take this time to count the number of available files to update the total files.
         filesObject.forEach(item => {
-            item.value = false;
-            item.selected = false;
+
+            // This is for tests; If value is true at initialization, update totalSelected
+            item.value = item.value ? this.totalSelected += 1 : false;
+            item.selected = item.selected ? item.selected : false;
 
             if (item.status === "available") {
                 this.totalAvailable += 1;
@@ -33,6 +35,16 @@ export default class ChecklistComponentComponent extends Component {
 
             this.files.pushObject(EmberObject.create(item));
         });
+    }
+
+    /**
+        Sets the files property for this component.
+        @property filesArgument
+        @type {Array} of {Objects}
+        @default []
+    */
+    get filesArgument() {
+        return this.args.files ?? [];
     }
 
     /**

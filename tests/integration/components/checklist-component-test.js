@@ -1,26 +1,31 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { findAll, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { ChecklistComponentDummy1 } from '../test-support-json';
+import $ from 'jquery';
 
 module('Integration | Component | checklist-component', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('Empty list test', async function (assert) {
     await render(hbs`<ChecklistComponent />`);
 
-    assert.dom(this.element).hasText('');
+    assert.equal(findAll('.flex-container').length, 0, 'No data rows rendered.');
+    assert.equal($('button:disabled').length, 1, 'Download button is disabled.');
+    assert.equal($('.selected-files-class').text().includes('None selected'), 1, 'None selected displayed correctly.');
+  });
 
-    // Template block usage:
-    await render(hbs`
-      <ChecklistComponent>
-        template block text
-      </ChecklistComponent>
-    `);
+  test('List test - 5 entries and one selected', async function (assert) {
+    const filesImport = ChecklistComponentDummy1();
+    this.set('files', filesImport);
 
-    assert.dom(this.element).hasText('template block text');
+    await render(hbs`<ChecklistComponent @files={{this.files}} />`);
+
+    assert.equal(findAll('.flex-container').length, 5, 'All five data rows rendered.');
+    assert.equal(findAll('.selectable-row').length, 2, 'Two selectable rows rendered.')
+    assert.equal(findAll('.selected-row').length, 1, 'One selected row rendered.')
+    assert.equal($('button:disabled').length, 0, 'Download button is enabled.');
+    assert.equal($('.selected-files-class').text().includes('1'), 1, 'Selected 1 displayed correctly.');
   });
 });
