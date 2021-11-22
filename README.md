@@ -8,6 +8,8 @@ This is a basic implementation of a checklist component that takes in an object 
 * components/checklist-component.js - The javascript file for the ChecklistComponent.
 * styles/app.scss - The styling for the application, centers the component and sets font for accessibility.
 * styles/checklist.scss - The styling for the ChecklistComponent.
+* tests/integration/test-support-json.js - A JSON blobs file for mocking test data
+* tests/integration/components/checklist-component-test.js - The integration tests for the ChecklistComponent
 
 ## Prerequisites
 
