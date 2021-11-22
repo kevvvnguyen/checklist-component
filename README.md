@@ -22,7 +22,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone https://github.com/kevvvnguyen/checklist-component.git`
+* `git clone ` this repo (link omitted to prevent implicit bias upon review)
 * `cd checklist-component`
 * `npm install`
 
