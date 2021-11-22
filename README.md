@@ -36,3 +36,11 @@ You will need the following things properly installed on your computer.
 ### Running Tests (command line)
 
 * To run the tests in the command line, run `ember test` or `ember test --server`.
+
+### Getting Git History from .zip file
+
+* The git history for this project has been saved in log.txt.
+* To get the git history via `git log` read further.
+* In the root directory, run `git clone -b main checklist-component-history.bundle`
+* This will clone the repo. Now `cd checklist-component-history.bundle`
+* This is an exact copy of the root directory, except with git versioning/history. Run `git log`.
